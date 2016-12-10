@@ -1,17 +1,15 @@
 package lianxue.online.controller;
 
 
-import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,7 +30,7 @@ public class ProductController {
 	private ProductService productService;
 	
 	@RequestMapping(value="/{categoryId}",method=RequestMethod.GET)
-	public String selectProductList(@PathVariable Integer categoryId,ModelMap map){
+	public String selectProductList(@PathVariable Integer categoryId,Model map){
 		List<Product> productList = productService.selectProductList(categoryId);
 		map.addAttribute("productList", productList);
 		map.addAttribute("product_cate", categoryId);
@@ -78,6 +76,45 @@ public class ProductController {
             return result;
         }
     }
+    @RequestMapping(value="/editPage",method=RequestMethod.GET)
+    public String editPage(Long id,Model model){
+    	Product product = productService.selectProduct(id);
+    	model.addAttribute("product", product);
+    	return "product/productEdit";
+    }
+    
+    
+    @RequestMapping("/edit")
+    @ResponseBody
+    public Result edit(Product product){
+    	Result result = new Result();
+    	try {
+			productService.editProduct(product);
+			result.setSuccess(true);
+            result.setMsg("修改成功");
+            return result;
+		} catch (Exception e) {
+			LOGGER.error("修改失败：{}", e);
+            result.setMsg(e.getMessage());
+            return result;
+		}
+    }
 	
+    @RequestMapping("/delete")
+    @ResponseBody
+    public Result delete(Long id){
+    	Result result = new Result();
+    	try {
+    		productService.deleteProduct(id);
+    		result.setSuccess(true);
+    		result.setMsg("删除成功");
+    		return result;
+    	} catch (Exception e) {
+    		LOGGER.error("删除失败：{}", e);
+    		result.setMsg(e.getMessage());
+    		return result;
+    	}
+    }
+    
 
 }

@@ -28,7 +28,7 @@ public class ProductServiceImpl implements ProductService {
 		Example example = new Example(Product.class);
 		Criteria c = example.createCriteria();
 		if(StringUtils.isNotEmpty(product.getProductName())){
-			c.andLike("productName", product.getProductName());
+			c.andLike("productName", "%"+product.getProductName()+"%");
 		}
 		if(product.getCategoryId() != null){
 			c.andEqualTo("categoryId", product.getCategoryId());
@@ -43,5 +43,28 @@ public class ProductServiceImpl implements ProductService {
 			throw new RuntimeException("增加失败");
 		}
 	}
+
+	@Override
+	public Product selectProduct(Long id) {
+		return productMapper.selectByPrimaryKey(id);
+	}
+
+	@Override
+	public void editProduct(Product product){
+		int edit = productMapper.updateByPrimaryKey(product);
+		if(edit != 1){
+			throw new RuntimeException("修改失败");
+		}
+	}
+
+	@Override
+	public void deleteProduct(Long id) {
+		int delete = productMapper.deleteByPrimaryKey(id);
+		if(delete != 1){
+			throw new RuntimeException("删除失败");
+		}
+	}
+	
+	
 
 }

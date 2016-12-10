@@ -87,8 +87,8 @@ public class RoleServiceImpl implements RoleService {
 //			roleResourceMapper.deleteByExample(example);
 		}
 		String[] resources = resourceIds.split(",");
-		RoleResource roleResource = new RoleResource();
 		for (String string : resources) {
+			RoleResource roleResource = new RoleResource();
 			roleResource.setRoleId(id);
 			roleResource.setResourceId(Long.parseLong(string));
 			roleResourceMapper.insert(roleResource);

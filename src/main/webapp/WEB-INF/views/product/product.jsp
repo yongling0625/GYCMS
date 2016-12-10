@@ -64,7 +64,7 @@ $(function(){
             title : '添加',
             width : 500,
             height : 300,
-            href : 'product/addPage',
+            href : '${path }/product/addPage',
             buttons : [ {
                 text : '添加',
                 handler : function() {
@@ -83,27 +83,19 @@ $(function(){
         } else {// 点击操作里面的删除图标会触发这个
             dataGrid.datagrid('unselectAll').datagrid('uncheckAll');
         }
-        parent.$.messager.confirm('询问', '您是否要删除当前用户？', function(b) {
+        parent.$.messager.confirm('询问', '您是否要删除这条记录？', function(b) {
             if (b) {
-                var currentUserId = '${sessionInfo.id}';/* 当前登录用户的ID */
-                if (currentUserId != id) {
-                    progressLoad();
-                    $.post('${path }/user/delete', {
-                        id : id
-                    }, function(result) {
-                        if (result.success) {
-                            parent.$.messager.alert('提示', result.msg, 'info');
-                            dataGrid.datagrid('reload');
-                        }
-                        progressClose();
-                    }, 'JSON');
-                } else {
-                    parent.$.messager.show({
-                        title : '提示',
-                        msg : '不可以删除自己！'
-                    });
+	             progressLoad();
+	             $.post('${path }/product/delete', {
+	                 id : id
+	             }, function(result) {
+	                 if (result.success) {
+	                     parent.$.messager.alert('提示', result.msg, 'info');
+	                     dataGrid.datagrid('reload');
+	                 }
+	                 progressClose();
+	             }, 'JSON');
                 }
-            }
         });
     }
     
@@ -118,7 +110,7 @@ $(function(){
             title : '编辑',
             width : 500,
             height : 300,
-            href : '${path }/user/editPage?id=' + id,
+            href : '${path }/product/editPage?id=' + id,
             buttons : [ {
                 text : '确定',
                 handler : function() {
