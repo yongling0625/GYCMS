@@ -38,7 +38,7 @@
                 <tr>
                     <td>内容</td>
                     <td>
-                    <textarea name="content" placeholder="请输入内容" class="easyui-validatebox" data-options="required:true" value="${news.content }"></textarea>
+                    <textarea name="content" placeholder="请输入内容" class="easyui-validatebox" data-options="required:true"><c:out value="${news.content }"></c:out></textarea>
                     </td>
                 </tr>
             </table>
