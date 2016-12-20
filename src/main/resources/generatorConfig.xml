@@ -13,7 +13,7 @@
 		</plugin>
 
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://192.168.0.104:3306/lianxue" userId="root" password="root">
+			connectionURL="jdbc:mysql://211.102.216.117:3306/automatic" userId="web_portal" password="web_portal">
 		</jdbcConnection>
 
 		<javaModelGenerator targetPackage="lianxue.online.model"
@@ -25,7 +25,7 @@
 		<javaClientGenerator targetPackage="lianxue.online.mapper"
 			targetProject="src/main/java" type="XMLMAPPER" />
 
-		<table tableName="%">
+		<table tableName="application_case">
 			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
 		</table>
 	</context>

@@ -12,39 +12,41 @@ var dataGrid;
 $(function(){
 	
         dataGrid = $('#dataGrid').datagrid({
-            url : '${path }/product/dataGrid',
+            url : '${path }/appCase/dataGrid',
             fit : true,
             striped : true,
             rownumbers : true,
             pagination : true,
             singleSelect : true,
             idField : 'id',
-            sortName : 'productName',
-            sortOrder : 'asc',
             pageSize : 20,
             pageList : [ 10, 20, 30, 40, 50, 100, 200, 300, 400, 500 ],
             columns : [ [ {
                 width : '180',
-                title : '产品名称',
-                field : 'productName'
+                title : '案例名称',
+                field : 'applicationCaseName'
             }, {
                 width : '180',
-                title : '产品类别',
-                field : 'categoryId'
+                title : '案例介绍',
+                field : 'applicationCaseInfo'
+            }, {
+                width : '180',
+                title : '案例类别',
+                field : 'applicationCaseCategory'
             },{
                 width : '180',
                 title : '图片路径',
-                field : 'imageAddress'
+                field : 'applicationCaseImages'
             }, {
                 field : 'action',
                 title : '操作',
                 width : 130,
                 formatter : function(value, row, index) {
                 	var str = '';
-	                    <shiro:hasPermission name="/product/edit">
+	                    <shiro:hasPermission name="/appCase/edit">
 	                        str += $.formatString('<a href="javascript:void(0)" class="user-easyui-linkbutton-edit" data-options="plain:true,iconCls:\'icon-edit\'" onclick="editFun(\'{0}\');" >编辑</a>', row.id);
 	                    </shiro:hasPermission>
-	                    <shiro:hasPermission name="/product/delete">
+	                    <shiro:hasPermission name="/appCase/delete">
 	                        str += '&nbsp;&nbsp;|&nbsp;&nbsp;';
 	                        str += $.formatString('<a href="javascript:void(0)" class="user-easyui-linkbutton-del" data-options="plain:true,iconCls:\'icon-del\'" onclick="deleteFun(\'{0}\');" >删除</a>', row.id);
 	                    </shiro:hasPermission>
@@ -64,12 +66,12 @@ $(function(){
             title : '添加',
             width : 500,
             height : 300,
-            href : '${path }/product/addPage',
+            href : '${path }/appCase/addPage',
             buttons : [ {
                 text : '添加',
                 handler : function() {
                     parent.$.modalDialog.openner_dataGrid = dataGrid;// 因为添加成功之后，需要刷新这个dataGrid，所以先预定义好
-                    var f = parent.$.modalDialog.handler.find('#productAddForm');
+                    var f = parent.$.modalDialog.handler.find('#appCaseAddForm');
                     f.submit();
                 }
             } ]
@@ -86,7 +88,7 @@ $(function(){
         parent.$.messager.confirm('询问', '您是否要删除这条记录？', function(b) {
             if (b) {
 	             progressLoad();
-	             $.post('${path }/product/delete', {
+	             $.post('${path }/appCase/delete', {
 	                 id : id
 	             }, function(result) {
 	                 if (result.success) {
@@ -110,12 +112,12 @@ $(function(){
             title : '编辑',
             width : 500,
             height : 300,
-            href : '${path }/product/editPage?id=' + id,
+            href : '${path }/appCase/editPage?id=' + id,
             buttons : [ {
                 text : '确定',
                 handler : function() {
                     parent.$.modalDialog.openner_dataGrid = dataGrid;// 因为添加成功之后，需要刷新这个dataGrid，所以先预定义好
-                    var f = parent.$.modalDialog.handler.find('#productEditForm');
+                    var f = parent.$.modalDialog.handler.find('#appCaseEditForm');
                     f.submit();
                 }
             } ]
@@ -137,11 +139,9 @@ $(function(){
         <form id="searchForm">
             <table>
                 <tr>
-                    <th>产品名称:</th>
-                    <td><input name="productName" placeholder="请输入产品名称"/></td>
-                    <th>产品类别:</th>
+                    <th>案例类别:</th>
                     <td>
-                    <input name="categoryId" placeholder="请输入产品类别"/>
+                    <input name="categoryId" placeholder="请输入案例类别"/>
                     <a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" onclick="searchFun();">查询</a><a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-cancel',plain:true" onclick="cleanFun();">清空</a>
                     </td>
                 </tr>

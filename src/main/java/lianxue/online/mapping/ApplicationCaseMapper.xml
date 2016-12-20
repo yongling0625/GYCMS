@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lianxue.online.mapper.ApplicationCaseMapper">
+  <resultMap id="BaseResultMap" type="lianxue.online.model.ApplicationCase">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="application_case_category" jdbcType="TINYINT" property="applicationCaseCategory" />
+    <result column="application_case_name" jdbcType="VARCHAR" property="applicationCaseName" />
+    <result column="application_case_images" jdbcType="VARCHAR" property="applicationCaseImages" />
+    <result column="application_case_info" jdbcType="LONGVARCHAR" property="applicationCaseInfo" />
+  </resultMap>
+</mapper>
