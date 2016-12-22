@@ -37,7 +37,7 @@
                 </tr>
                 <tr>
                     <td>案例介绍</td>
-                    <td><textarea name="applicationCaseInfo" placeholder="请输入案例介绍" data-options="required:true" class="easyui-validatebox" rows="5" cols="40"></textarea></td>
+                    <td><textarea name="applicationCaseInfo" placeholder="请输入案例介绍" data-options="required:true" class="easyui-validatebox" rows="3" cols="40"></textarea></td>
                 </tr>
                 <tr>
                     <td>案例类别</td>
@@ -55,8 +55,12 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>上传图片</td>
-                    <td><input type="file" name="image" data-options="required:true"/></td>
+                    <td>上传图片1</td>
+                    <td><input type="file" name="image"/></td>
+                </tr>
+                <tr>
+                    <td>上传图片2</td>
+                    <td><input type="file" name="image"/></td>
                 </tr>
             </table>
         </form>

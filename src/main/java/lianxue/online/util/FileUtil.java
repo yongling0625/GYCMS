@@ -12,8 +12,8 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 public class FileUtil {
 	
-	public static String upload(HttpServletRequest request) throws IOException {
-		String path = null;
+	public static String upload(String path,HttpServletRequest request) throws IOException {
+		StringBuffer sb = new StringBuffer();
 		//创建一个通用的多部分解析器  
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver(request.getSession().getServletContext());  
         //判断 request 是否有文件上传,即多部分请求  
@@ -21,7 +21,7 @@ public class FileUtil {
             //转换成多部分request    
             MultipartHttpServletRequest multiRequest = (MultipartHttpServletRequest)request;  
             //取得request中的所有文件名  
-            Iterator<String> iter = multiRequest.getFileNames();  
+            Iterator<String> iter = multiRequest.getFileNames(); 
             while(iter.hasNext()){  
                 //记录上传过程起始时的时间，用来计算上传时间  
                 int pre = (int) System.currentTimeMillis();  
@@ -34,19 +34,18 @@ public class FileUtil {
                     if(myFileName.trim() !=""){  
                         System.out.println(myFileName);  
                         //定义上传路径  
-                        path = "F:/" + myFileName;  
+                        path = path + myFileName;  
                         File localFile = new File(path);  
                         file.transferTo(localFile);  
+                        sb.append(path).append(";");
                     }  
                 }  
                 //记录上传该文件后的时间  
                 int finaltime = (int) System.currentTimeMillis();  
                 System.out.println(finaltime - pre);  
             }  
-              
         }  
-        
-        return path;
+        return sb.substring(0, sb.length()-1);
 	}
 
 }

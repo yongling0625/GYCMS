@@ -20,6 +20,7 @@ import com.github.pagehelper.PageHelper;
 import lianxue.online.code.Result;
 import lianxue.online.model.Product;
 import lianxue.online.service.ProductService;
+import lianxue.online.util.Config;
 import lianxue.online.util.FileUtil;
 @Controller
 @RequestMapping("/product")
@@ -65,7 +66,7 @@ public class ProductController {
     public Result add(HttpServletRequest request,Product product){
     	Result result = new Result();
     	try {
-    		product.setImageAddress(FileUtil.upload(request));
+    		product.setImageAddress(FileUtil.upload(Config.PRODUCTIMAGEPATH,request));
     		productService.addProduct(product);
             result.setSuccess(true);
             result.setMsg("添加成功");

@@ -18,6 +18,7 @@ import com.github.pagehelper.PageHelper;
 import lianxue.online.code.Result;
 import lianxue.online.model.ApplicationCase;
 import lianxue.online.service.ApplicationCaseService;
+import lianxue.online.util.Config;
 import lianxue.online.util.FileUtil;
 @Controller
 @RequestMapping("/appCase")
@@ -54,7 +55,7 @@ public class ApplicationCaseController {
     public Result add(HttpServletRequest request,ApplicationCase applicationCase){
     	Result result = new Result();
     	try {
-    		applicationCase.setApplicationCaseImages(FileUtil.upload(request));
+    		applicationCase.setApplicationCaseImages(FileUtil.upload(Config.APPCASEIMAGEPATH,request));
     		applicationCaseService.addApplicationCase(applicationCase);
             result.setSuccess(true);
             result.setMsg("添加成功");
