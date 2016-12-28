@@ -55,7 +55,7 @@ public class ApplicationCaseController {
     public Result add(HttpServletRequest request,ApplicationCase applicationCase){
     	Result result = new Result();
     	try {
-    		applicationCase.setApplicationCaseImages(FileUtil.upload(Config.APPCASEIMAGEPATH,request));
+    		applicationCase.setApplicationCaseImages(FileUtil.upload(Config.APPCASEIMAGEPATH,Config.APPCASEIMAGESHOWPATH,request));
     		applicationCaseService.addApplicationCase(applicationCase);
             result.setSuccess(true);
             result.setMsg("添加成功");

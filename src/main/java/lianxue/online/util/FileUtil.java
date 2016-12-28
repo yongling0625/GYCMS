@@ -12,7 +12,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 public class FileUtil {
 	
-	public static String upload(String path,HttpServletRequest request) throws IOException {
+	public static String upload(String path,String showPath,HttpServletRequest request) throws IOException {
 		StringBuffer sb = new StringBuffer();
 		//创建一个通用的多部分解析器  
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver(request.getSession().getServletContext());  
@@ -34,10 +34,11 @@ public class FileUtil {
                     if(myFileName.trim() !=""){  
                         System.out.println(myFileName);  
                         //定义上传路径  
-                        path = path + myFileName;  
+                        path = path + myFileName;
+                        showPath = showPath + myFileName;
                         File localFile = new File(path);  
                         file.transferTo(localFile);  
-                        sb.append(path).append(";");
+                        sb.append(showPath).append(";");
                     }  
                 }  
                 //记录上传该文件后的时间  

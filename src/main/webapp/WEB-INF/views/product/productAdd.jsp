@@ -48,6 +48,18 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>产品概要</td>
+                    <td>
+                    <textarea name="overview" placeholder="请输入内容" class="easyui-validatebox" data-options="required:true" rows="3" cols="40"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>核心参数</td>
+                    <td>
+                    <textarea name="coreParameter" placeholder="请输入内容" class="easyui-validatebox" data-options="required:true" rows="3" cols="40"></textarea>
+                    </td>
+                </tr>
+                <tr>
                     <td>上传图片</td>
                     <td><input type="file" name="image" data-options="required:true"/></td>
                 </tr>

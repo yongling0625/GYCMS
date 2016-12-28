@@ -66,7 +66,7 @@ public class ProductController {
     public Result add(HttpServletRequest request,Product product){
     	Result result = new Result();
     	try {
-    		product.setImageAddress(FileUtil.upload(Config.PRODUCTIMAGEPATH,request));
+    		product.setImageAddress(FileUtil.upload(Config.PRODUCTIMAGEPATH,Config.PRODUCTIMAGESHOWPATH,request));
     		productService.addProduct(product);
             result.setSuccess(true);
             result.setMsg("添加成功");

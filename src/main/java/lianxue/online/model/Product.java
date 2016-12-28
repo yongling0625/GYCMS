@@ -13,6 +13,11 @@ public class Product {
     @Column(name = "category_id")
     private Integer categoryId;
 
+    private String overview;
+
+    @Column(name = "core_parameter")
+    private String coreParameter;
+
     @Column(name = "image_address")
     private String imageAddress;
 
@@ -56,6 +61,34 @@ public class Product {
      */
     public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
+    }
+
+    /**
+     * @return overview
+     */
+    public String getOverview() {
+        return overview;
+    }
+
+    /**
+     * @param overview
+     */
+    public void setOverview(String overview) {
+        this.overview = overview;
+    }
+
+    /**
+     * @return core_parameter
+     */
+    public String getCoreParameter() {
+        return coreParameter;
+    }
+
+    /**
+     * @param coreParameter
+     */
+    public void setCoreParameter(String coreParameter) {
+        this.coreParameter = coreParameter;
     }
 
     /**

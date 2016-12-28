@@ -25,7 +25,7 @@
 		<javaClientGenerator targetPackage="lianxue.online.mapper"
 			targetProject="src/main/java" type="XMLMAPPER" />
 
-		<table tableName="application_case">
+		<table tableName="product">
 			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
 		</table>
 	</context>

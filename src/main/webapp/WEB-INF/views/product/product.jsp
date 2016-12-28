@@ -31,6 +31,14 @@ $(function(){
                 width : '180',
                 title : '产品类别',
                 field : 'categoryId'
+            }, {
+                width : '180',
+                title : '产品概要',
+                field : 'overview'
+            }, {
+                width : '180',
+                title : '核心参数',
+                field : 'coreParameter'
             },{
                 width : '180',
                 title : '图片路径',
