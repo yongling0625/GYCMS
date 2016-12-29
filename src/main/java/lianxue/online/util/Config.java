@@ -14,5 +14,9 @@ public interface Config {
     String APPCASEIMAGEPATH = "F:\\images\\appCase\\";
     String APPCASEIMAGESHOWPATH = "static/images/appCase/";
     String PRODUCTIMAGEPATH = "/data/images/product/";
+    String PDFIMAGEPATH = "/data/images/pdfImages/";
+    String PDFPATH = "/data/pdfs/pdf/";
     String PRODUCTIMAGESHOWPATH = "static/images/product/";
+    String PDFIMAGESHOWPATH = "static/images/pdfImages/";
+    String PDFSHOWPATH = "static/pdfs/pdf/";
 }
