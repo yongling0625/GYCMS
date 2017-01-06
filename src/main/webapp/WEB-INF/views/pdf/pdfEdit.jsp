@@ -28,7 +28,7 @@
 </script>
 <div class="easyui-layout" data-options="fit:true,border:false">
     <div data-options="region:'center',border:false" title="" style="overflow: hidden;padding: 3px;">
-        <form id="pdfEditForm" method="post">
+        <form id="pdfEditForm" method="post" enctype="multipart/form-data">
             <table class="grid">
                 <tr>
                     <td>PDF名称</td>

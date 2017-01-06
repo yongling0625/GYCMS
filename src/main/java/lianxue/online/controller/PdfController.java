@@ -55,8 +55,7 @@ public class PdfController {
     public Result add(HttpServletRequest request,PdfInfo pdfInfo){
     	Result result = new Result();
     	try {
-    		pdfInfo.setPictureAddress(FileUtil.upload(Config.PDFIMAGEPATH,Config.PDFIMAGESHOWPATH,request));
-			pdfInfo.setPdfAddress(FileUtil.upload(Config.PDFPATH,Config.PDFSHOWPATH,request));
+    		pdfInfo = FileUtil.uploadPdf(Config.PDFIMAGEPATH,Config.PDFIMAGESHOWPATH,Config.PDFPATH,Config.PDFSHOWPATH,pdfInfo,request);
     		pdfService.addPdf(pdfInfo);
             result.setSuccess(true);
             result.setMsg("添加成功");
@@ -83,8 +82,7 @@ public class PdfController {
     	Result result = new Result();
     	try {
     		try{
-    			pdfInfo.setPictureAddress(FileUtil.upload(Config.PDFIMAGEPATH,Config.PDFIMAGESHOWPATH,request));
-    			pdfInfo.setPdfAddress(FileUtil.upload(Config.PDFPATH,Config.PDFSHOWPATH,request));
+    			pdfInfo = FileUtil.uploadPdf(Config.PDFIMAGEPATH,Config.PDFIMAGESHOWPATH,Config.PDFPATH,Config.PDFSHOWPATH,pdfInfo,request);
     		}catch (Exception e) {
     		}
     		pdfService.editPdf(pdfInfo);

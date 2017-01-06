@@ -16,6 +16,6 @@ public interface Config {
     String PRODUCTIMAGESHOWPATH = "static/images/product/";
     String PDFIMAGEPATH = "/data/images/pdfImages/";
     String PDFIMAGESHOWPATH = "static/images/pdfImages/";
-    String PDFPATH = "/data/pdfs/pdf/";
-    String PDFSHOWPATH = "static/pdfs/pdf/";
+    String PDFPATH = "/data/pdfs/";
+    String PDFSHOWPATH = "static/pdfs/";
 }
