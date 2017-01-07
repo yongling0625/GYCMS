@@ -56,11 +56,11 @@
                 </tr>
                 <tr>
                     <td>上传图片1</td>
-                    <td><input type="file" name="image"/></td>
+                    <td><input type="file" name="image1"/></td>
                 </tr>
                 <tr>
                     <td>上传图片2</td>
-                    <td><input type="file" name="image"/></td>
+                    <td><input type="file" name="image2"/></td>
                 </tr>
             </table>
         </form>

@@ -18,13 +18,13 @@ public class User {
 
     private String password;
 
-    private Byte sex;
+    private Integer sex;
 
-    private Byte age;
+    private Integer age;
 
-    private Byte usertype;
+    private Integer usertype;
 
-    private Byte status;
+    private Integer status;
 
     @Column(name = "organization_id")
     private Integer organizationId;
@@ -92,56 +92,56 @@ public class User {
     /**
      * @return sex
      */
-    public Byte getSex() {
+    public Integer getSex() {
         return sex;
     }
 
     /**
      * @param sex
      */
-    public void setSex(Byte sex) {
+    public void setSex(Integer sex) {
         this.sex = sex;
     }
 
     /**
      * @return age
      */
-    public Byte getAge() {
+    public Integer getAge() {
         return age;
     }
 
     /**
      * @param age
      */
-    public void setAge(Byte age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
     /**
      * @return usertype
      */
-    public Byte getUsertype() {
+    public Integer getUsertype() {
         return usertype;
     }
 
     /**
      * @param usertype
      */
-    public void setUsertype(Byte usertype) {
+    public void setUsertype(Integer usertype) {
         this.usertype = usertype;
     }
 
     /**
      * @return status
      */
-    public Byte getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
     /**
      * @param status
      */
-    public void setStatus(Byte status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
