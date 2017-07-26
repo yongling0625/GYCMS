@@ -13,7 +13,7 @@
 		</plugin>
 
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://211.102.216.117:3306/automatic" userId="web_portal" password="web_portal">
+			connectionURL="jdbc:mysql://11.12.21.17:3306/automati" userId="web_poral" password="web_prtal">
 		</jdbcConnection>
 
 		<javaModelGenerator targetPackage="lianxue.online.model"
