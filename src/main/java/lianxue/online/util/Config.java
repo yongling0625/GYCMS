@@ -10,12 +10,12 @@ public interface Config {
     Integer RESOURCE_MENU = 0; // 菜单
     Integer RESOURCE_BUTTON = 1; // 按钮
     
-    String APPCASEIMAGEPATH = "/data/images/appCase/";
-    String APPCASEIMAGESHOWPATH = "static/images/appCase/";
-    String PRODUCTIMAGEPATH = "/data/images/product/";
-    String PRODUCTIMAGESHOWPATH = "static/images/product/";
-    String PDFIMAGEPATH = "/data/images/pdfImages/";
-    String PDFIMAGESHOWPATH = "static/images/pdfImages/";
+    String APPCASEIMAGEPATH = "/data/images/";
+    String APPCASEIMAGESHOWPATH = "images/";
+    String PRODUCTIMAGEPATH = "/data/images/";
+    String PRODUCTIMAGESHOWPATH = "images/";
+    String PDFIMAGEPATH = "/data/images/";
+    String PDFIMAGESHOWPATH = "images/";
     String PDFPATH = "/data/pdfs/";
-    String PDFSHOWPATH = "static/pdfs/";
+    String PDFSHOWPATH = "pdfs/";
 }

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="lianxue.online.mapper.RoleMapper">
+	<resultMap id="BaseResultMap" type="lianxue.online.model.Role">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="seq" property="seq" jdbcType="TINYINT" />
+		<result column="description" property="description" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="TINYINT" />
+	</resultMap>
+
+	<select id="findRoleResourceListByRoleId" resultType="java.util.HashMap"
+		parameterType="java.lang.Long">
+		SELECT
+		e.id AS id,
+		s.url AS url
+		FROM
+		role r
+		LEFT JOIN
+		role_resource e ON r.id = e.role_id
+		LEFT JOIN resource s ON
+		e.resource_id = s.id
+		WHERE
+		r.id = #{id}
+	</select>
+
+	<select id="findResourceIdListByRoleIdAndType" resultType="lianxue.online.model.Resource"
+		parameterType="java.lang.Long">
+		SELECT
+		s.id AS id,
+		s. NAME AS 'name',
+		s.url AS url,
+		s.description AS description,
+		s.icon AS icon,
+		s.pid AS pid,
+		s.seq AS seq,
+		s. STATUS AS 'status',
+		s.resourcetype AS resourcetype,
+		s.createdate AS
+		createdate
+		FROM
+		role r
+		LEFT JOIN role_resource e ON r.id = e.role_id
+		LEFT
+		JOIN resource s ON e.resource_id = s.id
+		WHERE
+		r.id = #{id}
+		AND
+		s.resourcetype = 0
+	</select>
+	<select id="findResourceIdListByRoleId" resultType="java.lang.Long"
+		parameterType="java.lang.Long">
+		SELECT
+		e.resource_id AS id
+		FROM
+		role r
+		LEFT JOIN
+		role_resource e ON r.id = e.role_id
+		WHERE
+		r.id = #{id}
+	</select>
+	<select id="findRoleResourceIdListByRoleId" resultType="java.lang.Long"
+		parameterType="java.lang.Long">
+		SELECT
+		e.id AS id
+		FROM
+		role r
+		LEFT JOIN role_resource e ON r.id = e.role_id
+		WHERE
+		r.id = #{id}
+	</select>
+</mapper>

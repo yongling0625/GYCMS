@@ -2,7 +2,10 @@ package lianxue.online.util;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -31,22 +34,22 @@ public class FileUtil {
                 MultipartFile file = multiRequest.getFile(iter.next());  
                 if(file != null){  
                     //取得当前上传文件的文件名称  
-                    String myFileName = file.getOriginalFilename();  
-                    //如果名称不为“”,说明该文件存在，否则说明该文件不存在  
-                    if(myFileName.trim() !=""){  
-                        System.out.println(myFileName);  
-                        //定义上传路径  
-                        path = path + myFileName;
-                        showPath = showPath + myFileName;
-                        File localFile = new File(path);  
+                    String fileName = file.getOriginalFilename();
+                    //如果名称不为“”,说明该文件存在，否则说明该文件不存在
+                    if(fileName.trim() !=""){
+                        //检查扩展名
+                        String fileExt = fileName.substring(fileName.lastIndexOf(".") + 1).toLowerCase();
+                        SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");
+                        String newFileName = df.format(new Date()) + "_" + new Random().nextInt(1000) + "." + fileExt;
+                        //定义上传路径
+                        String paths = path + newFileName;
+                        String showPaths = showPath + newFileName;
+                        File localFile = new File(paths);
                         file.transferTo(localFile);  
-                        sb.append(showPath).append(";");
+                        sb.append(showPaths).append(",");
                     }  
                 }  
-                //记录上传该文件后的时间  
-                int finaltime = (int) System.currentTimeMillis();  
-                System.out.println(finaltime - pre);  
-            }  
+            }
         }  
         return sb.substring(0, sb.length()-1);
 	}

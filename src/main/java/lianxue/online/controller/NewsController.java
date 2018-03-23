@@ -99,7 +99,7 @@ public class NewsController {
     		result.setMsg("删除成功");
     		return result;
     	} catch (Exception e) {
-    		LOGGER.error("删除失败：{}", e);
+    		LOGGER.error("删除失败：{}", e.getMessage());
     		result.setMsg(e.getMessage());
     		return result;
     	}

@@ -53,7 +53,7 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="mapperLocations">
 			<array>
-				<value>classpath:lianxue/online/mapping/*.xml</value>
+				<value>classpath:mapping/*.xml</value>
 			</array>
 		</property>
 		<property name="typeAliasesPackage" value="lianxue.online.model" />

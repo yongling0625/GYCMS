@@ -83,10 +83,7 @@ INSERT INTO `resource` VALUES ('142', '添加', '/organization/add', '部门添�
 INSERT INTO `resource` VALUES ('143', '编辑', '/organization/edit', '部门编辑', 'icon-edit', '14', '0', '0', '1', '2014-02-19 01:00:00');
 INSERT INTO `resource` VALUES ('144', '删除', '/organization/delete', '部门删除', 'icon-del', '14', '0', '0', '1', '2014-02-19 01:00:00');
 INSERT INTO `resource` VALUES ('221', '日志管理', '/sysLog/manager', null, 'icon-company', null, '2', '0', '0', '2015-12-01 11:44:20');
-INSERT INTO `resource` VALUES ('222', '视频教程', '', null, 'icon-company', null, '1', '0', '0', '2015-12-06 12:40:42');
-INSERT INTO `resource` VALUES ('223', '官方网站', 'http://www.dreamlu.net/', null, 'icon-folder', '222', '0', '0', '0', '2015-12-06 12:42:42');
-INSERT INTO `resource` VALUES ('224', 'jfinal视频', 'http://blog.dreamlu.net/blog/79', null, 'icon-folder', '222', '1', '0', '0', '2015-12-06 12:45:28');
-INSERT INTO `resource` VALUES ('226', '修改密码', '/user/editPwdPage', null, 'icon-edit', null, '3', '0', '1', '2015-12-07 20:23:06');
+INSERT INTO `resource` VALUES ('222', '修改密码', '/user/editPwdPage', null, 'icon-edit', null, '3', '0', '1', '2015-12-07 20:23:06');
 
 -- ----------------------------
 -- Table structure for role
